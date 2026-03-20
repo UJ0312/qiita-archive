@@ -2,66 +2,19 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 概要
+## 記事を書くときの注意点
+記事を書くときは必ず WRITING.md を参照してください。
+また必ず最近の記事をランダムに数記事ピックアップし、それらの文体をできる限り模倣して作るようにしてください。
 
-[qiita-cli](https://github.com/increments/qiita-cli) を使ってQiita記事をローカルで管理するリポジトリ。`main` ブランチへのpushでGitHub Actionsが自動的にQiitaへ記事を投稿・更新する。
+### 下書きファイル
+- `drafts/`ディレクトリに配置
+- フロントマター不要
+- 日本語の説明的なファイル名を使用
 
-## よく使うコマンド
-
-```bash
-# 新規記事を作成（public/<name>.md が生成される）
-npx qiita new <ファイル名>
-
-# ブラウザでプレビュー（localhost:8888）
-npx qiita preview
-
-# 記事を手動で投稿・更新
-npx qiita publish <ファイル名>
-
-# Qiitaの既存記事をすべてローカルに取得
-npx qiita pull
-```
-
-## 記事ファイルの構造
-
-記事は `public/` ディレクトリに `.md` ファイルとして保存される。各ファイルの先頭にはqiita-cliが管理するフロントマターが必要：
-
-```yaml
----
-title: 記事タイトル
-tags:
-  - tag1
-  - tag2
-private: false        # trueにすると限定共有記事
-updated_at: ''
-id: null              # 投稿後にQiitaのIDが自動で入る
-organization_url_name: null
-slide: false
-ignore_publish: false # trueにするとpushしても投稿されない
----
-```
-
-## 投稿フロー
-
-1. `npx qiita new <name>` で記事作成
-2. `npx qiita preview` でプレビュー確認
-3. `git add / commit / push` → GitHub Actionsが自動投稿
-
-## 設定
-
-- `qiita.config.json`: プレビューサーバーの設定（port: 8888）、`includePrivate: false`（限定共有記事はpull対象外）
-- GitHub Actions: `QIITA_TOKEN` シークレットが必要（設定済み）
-
-## ドキュメント（docs/）
-
-記事作成・レビューに関するガイドラインは `docs/` に格納：
-
-| ファイル | 内容 |
-|---|---|
-| `general.md` | 全体的なガイドライン |
-| `writing-workflow.md` | 記事執筆フロー |
-| `ai-collaboration-guide.md` | AIツールとの協働指針 |
-| `naming-conventions.md` | 命名規則 |
-| `publishing-checklist.md` | 公開前チェックリスト |
-| `review-process.md` | レビュープロセス |
-| `template-usage.md` | テンプレート使用方法 |
+## 執筆スタイル
+詳細なスタイルガイドは`WRITING.md`を参照。主要ポイント：
+- 過度な敬語を使わないカジュアルで丁寧な文体
+- 技術記事の構成：問題提起 → 解決策 → 実装 → まとめ
+- 実践的な例とコードサンプルを含める
+- 構造化された見出し（主に`###`）を使用
+- 謙虚で学習志向の姿勢を維持
